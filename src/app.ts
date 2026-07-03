@@ -6,7 +6,9 @@ dotenv.config();
 
 // JWT_SECRET 미설정 시 서버 시작 거부
 if (!process.env.JWT_SECRET) {
-  console.error('[Fatal] JWT_SECRET 환경변수가 설정되지 않았습니다. 서버를 시작할 수 없습니다.');
+  console.error(
+    '[Fatal] JWT_SECRET 환경변수가 설정되지 않았습니다. 서버를 시작할 수 없습니다.',
+  );
   process.exit(1);
 }
 
@@ -18,18 +20,22 @@ import authRoute from './routes/auth';
 import routinesRoute from './routes/routines';
 import tasksRoute from './routes/tasks';
 import taskLogRoute from './routes/taskLog';
+import dashboardRoute from './routes/dashboard';
 
 const app = express();
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
-}));
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  }),
+);
 app.use(express.json());
 
 app.use('/auth', authRoute);
 app.use('/routines', routinesRoute);
 app.use('/tasks', tasksRoute);
 app.use('/task-logs', taskLogRoute);
+app.use('/dashboard', dashboardRoute);
 
 // 404 핸들러
 app.use((_req: Request, res: Response) => {
