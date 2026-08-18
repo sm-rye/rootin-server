@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Rootin Server는 루틴/습관 트래킹 앱의 **백엔드 API 서버**이다. 클라이언트는 `react-monorepo/projects/rootin`에 위치한 React 앱(rootin)이다.
+Rootin Server는 루틴/습관 트래킹 앱의 **백엔드 API 서버**이다. 클라이언트는 별도 `rootin-web` 저장소에서 관리한다.
 
-- **Client (rootin):** `~/Development/react-monorepo/projects/rootin`
-- **Server (rootin-server):** `~/Development/rootin-server`
+- **Client:** https://github.com/sm-rye/rootin-web
+- **Server:** https://github.com/sm-rye/rootin-server
 
 ## Commands
 
@@ -21,7 +21,7 @@ yarn prisma:migrate      # DB 마이그레이션 실행
 
 ## Tech Stack
 
-- **Runtime:** Node.js (ESM)
+- **Runtime:** Node.js 22 (CommonJS build)
 - **Framework:** Express 5
 - **Language:** TypeScript (strict mode)
 - **Database:** PostgreSQL (`localhost:5432/rootin_db`)
