@@ -2,7 +2,7 @@
 
 Rootin 웹앱의 백엔드 서버. 루틴·태스크 CRUD, 일일 완료 토글, JWT 인증을 제공한다.
 
-**[🚀 데모](https://react-monorepo-rootin.vercel.app/auth)** &nbsp;|&nbsp; **[클라이언트 레포](https://github.com/mirea-shin/react-monorepo)**
+**[🚀 데모](https://react-monorepo-rootin-three.vercel.app/auth)** &nbsp;|&nbsp; **[클라이언트 저장소](https://github.com/sm-rye/rootin-web)**
 
 ---
 
@@ -135,7 +135,7 @@ yarn prisma:migrate    # DB 마이그레이션 실행
 yarn dev               # 개발 서버 시작 (tsx watch)
 ```
 
-**환경 변수** (`.env`)
+`.env.example`을 복사해 `.env`를 만든 뒤 로컬 환경에 맞게 값을 설정한다.
 
 ```env
 DATABASE_URL="postgresql://user:password@localhost:5432/rootin_db"
@@ -144,3 +144,11 @@ SALT_ROUND=10
 PORT=3000
 FRONTEND_URL="http://localhost:5173"
 ```
+
+## 자동 검증
+
+`main` 브랜치와 Pull Request에 변경이 올라오면 GitHub Actions에서 다음 항목을 자동으로 확인한다.
+
+- Yarn 잠금 파일 기준 의존성 설치
+- Prisma 클라이언트 생성
+- TypeScript 빌드
